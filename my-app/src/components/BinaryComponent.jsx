@@ -3,8 +3,8 @@ import BinaryVisualizer from './BinaryVisualizer';
 
 
 const BinaryComponent = () => {
-   const [inputNumbers, setInputNumbers] = useState('');
-   const [element, setElement] = useState('');
+  const [inputNumbers, setInputNumbers] = useState('');
+  const [element, setElement] = useState('');
   const [result, setResult] = useState(null);
   const [visualizerData, setVisualizerData] = useState({
     array: [],
