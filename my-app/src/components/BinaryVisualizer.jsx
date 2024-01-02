@@ -1,36 +1,54 @@
-import React from "react";
 
-const BinaryVisualizer = ({ array, searchElement, resultIndex }) => {
-  if (!Array.isArray(array)) {
-    return null;
-  }
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-  const highlightIndex = resultIndex !== null ? resultIndex : -1;
-  const halfIndex = Math.floor(array.length / 2);
+const BinaryVisualizer = () => {
+  const result = useSelector((state) => state.binary.result);
+  const array = useSelector((state) => state.binary.array);
+  const left = useSelector((state) => state.binary.left);
+  const right = useSelector((state) => state.binary.right);
 
   return (
-    <div>
+    <div >
+      <h2 style={{color:"gray"}}>Binary Search Visualization</h2>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+  <div
+    style={{
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+    }}
+  >
+    {array?.map((num, index) => (
+      <div
+        key={index}
+        style={{
+          border: '3px solid black',
+          padding: '10px',
+          margin: '4px',
+          opacity: index < left || index > right ? '1' : '1',
+          backgroundColor: index < left || index > right ? 'violet' : 'red',
+          cursor: index < left || index > right ? 'not-allowed' : 'pointer',
       
-      <h3>Array Visualization</h3>
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-        {array.map((num, index) => (
-          <div
-            key={index}
-            style={{
-              border: '1px solid black',
-              padding: '5px',
-              margin: '2px',
-              backgroundColor:
-                highlightIndex === index ? 'lightgreen' : 'lightblue',
-            }}
-          >
-            {num}
-          </div>
-        ))}
+        }}
+      >
+        {num}
       </div>
-      <p>Search Element: {searchElement}</p>
+    ))}
+  </div>
+  {result === -1 ? (
+    <div style={{ color: 'green'}}>Not Found</div>
+  ) : (
+    <div style={{ color: 'green'}}>
+      Element found at {result + 1}
     </div>
+  )}
+</div>
+</div>
   );
 };
-
 export default BinaryVisualizer;
+
+
+
+
