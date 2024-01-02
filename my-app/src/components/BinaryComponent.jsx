@@ -26,7 +26,7 @@ const BinaryComponent = () => {
     while (left <= right) {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       const mid = Math.floor((left + right) / 2);
-      
+
       if (array[mid] === target) {
         setResult(mid);
         dispatch(setleft(mid));

@@ -27,7 +27,7 @@ const BinaryVisualizer = () => {
           padding: '10px',
           margin: '4px',
           opacity: index < left || index > right ? '1' : '1',
-          backgroundColor: index < left || index > right ? 'violet' : 'red',
+          backgroundColor: (left !== null && right !== null && index >= left && index <= right) ? 'blue' : 'violet',
           cursor: index < left || index > right ? 'not-allowed' : 'pointer',
       
         }}

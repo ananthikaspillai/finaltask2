@@ -4,8 +4,8 @@ const initialState={
     array:[],
     target:0,
     result:-1,
-    left:0,
-    right:0
+    left:null,
+    right:null,
 }
  
 export const binarySearchSlice = createSlice({
@@ -18,8 +18,8 @@ export const binarySearchSlice = createSlice({
     settarget: (state, action) => {
       state.target = action.payload;
     },
-    setresult: (state, action) => {
-      state.result = action.payload;
+    setoutpit: (state, action) => {
+      state.outp = action.payload;
     },
     setleft: (state, action) => {
       state.left = action.payload;
